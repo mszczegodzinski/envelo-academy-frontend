@@ -11,6 +11,7 @@ Błędy:
 9. linia 45: niepotrzebne zadeklarowanie parametrów i oraz arr, nie są one później używane
 10. w linijce 47 prawdopodobnie programista chciał użyć destrukturyzacji, więc zapis powinien wyglądać const { name } = x;
 11. w linijce 51 mamy zdublowany znacznik zamykający </p> oraz ${x.#powerCount} wygeneruje błąd, ponieważ nie możemy dostać się do pola prywatnego bez użycia gettera. W tym przypadku powinno to wyglądać ${x.getCurrentPowerCount()}
+12. linia 45 użycie funkcji map nie jest tutaj niezbędne, ale nie jest też błędem. Map zwraca tablicę jako wynik, a tutaj nie korzystamy z tego. Zwykły forEach byłby tu bardziej "precyzyjny" w użyciu. 
 
 plik index.html:
 1. dobrą praktyką byłoby importowanie stylów z plików css w znacziku <head></head> zamiast wpisywać je w tagu <style></style>. Import poprzez dodanie tagu w head: <link rel="stylesheet" href="style.css"> (zakładając, że style.css jest w tym samym folderze)
