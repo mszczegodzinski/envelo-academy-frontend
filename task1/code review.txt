@@ -1,0 +1,26 @@
+CR heroes-hall-of-fame
+Błędy:
+1. nazwa pliku zalecana jest notacja camelCase heroesHallOfFame, a najbardziej wskazana byłaby nazwa Hero.js (taka sama jak nazwa klasy)
+2. pole name nie istnieje w klasie Hero, mimo że użyte jest w konstruktorze klasy
+3. funkcja gethero powinna nazywać się getHero (błąd w notacji)
+4. funkcja getHero nie przyjmuje żadnych parametrów, a w linijkach 26 i 27 podawany jest 1 parametr typu string oraz zamiast let powinniśmy użyć const, bo nie nadpisujemy później tych zmiennych w dalszej części pliku
+5. linie 34-37 funkcja getHero powinna zwracać obiekt typu Hero, a aktualnie nie zwraca nic. Dodatkowo jeśli już chcemy deklarować zmienną, to w tym przypadku powinniśmy użyć const, zamiast let, a najbardziej zwięzłym zapisem byłoby po prostu return new Hero(name), gdzie name byłby parametrem typu string podawanym do funkcji getHero(name: string);
+6. linijka 32: print_hall_of_fame() - wskazana byłaby notacja camelCase printHallOfFame oraz funkcja wywołana jest przed jej zadeklarowaniem (generuje to błąd w przypadku użycia funkcji strzałkowej, zwykłe funkcje można wywołać przed ich deklaracją, ponieważ podlegają hoistingowi)
+7. linijka 40: const zamiast let ze względu na brak nadpisywania tej zmiennej oraz błędnie przekazany parametr do funkcji gethero. spider jest niezdefiniowaną referencją. Powinno być "spider". 
+8. nieprawidłowe użycie querySelector w 43 linijce. Nie istnieje w pliku index.html element o id="div". Albo należy dodać id do diva w 30 linijce index.html albo wykonać querySelector('div'), czyli wyszukać po tagu
+9. linia 45: niepotrzebne zadeklarowanie parametrów i oraz arr, nie są one później używane
+10. w linijce 47 prawdopodobnie programista chciał użyć destrukturyzacji, więc zapis powinien wyglądać const { name } = x;
+11. w linijce 51 mamy zdublowany znacznik zamykający </p> oraz ${x.#powerCount} wygeneruje błąd, ponieważ nie możemy dostać się do pola prywatnego bez użycia gettera. W tym przypadku powinno to wyglądać ${x.getCurrentPowerCount()}
+
+plik index.html:
+1. dobrą praktyką byłoby importowanie stylów z plików css w znacziku <head></head> zamiast wpisywać je w tagu <style></style>. Import poprzez dodanie tagu w head: <link rel="stylesheet" href="style.css"> (zakładając, że style.css jest w tym samym folderze)
+2. linia 14: backgroundColor jest niepoprawną właściwością w CSS. Jest to poprawny zapis w JS. Poprawna nazwa właściwości to background-color. Dodatkowo zmienna bg-color nie istnieje. Istnieje natomiast --bg-color
+3. Linia 15: nieznana nazwa czcionki w font-family
+4. linia 24: zbędna, do usunięcia
+5. linia 29: nieistniejący atrybut aria-main
+6. linia 30: className to poprawna nazwa propsa, ale w JSX, a nie w czystym html. Powinno być class="hero"
+7. linia 31: {heroCount} w ten sposób można się dobrać do zmiennej np. w React, a nie w html. Aktualnie nie mamy dostępu do żadnej zmiennej o takiej nazwie.
+8. linia 32: zduplikowany ostry nawias powinno być </div>
+9. linia 33: użycie onclick w html jest niewskazane i powinna zostać przypisana klasa lub id do buttona oraz w pliku .js dodany event listener dodający event typu "click" na wyszukanym elemencie (np. poprzez querySelector(".button") w przypadku użycia klasy)
+10. linia 36: tutaj powinien zostać załadowany skrypt w atrybucie src
+11. zamiast ładowania skryptu w linii 36, można byłoby przenieść ładowanie skryptu do sekcji <head></head> oraz dodanie atrybutu "defer" znaczika script, co sprawiłoby, że skrypt ładowałby się dopiero po wczytaniu całego DOM

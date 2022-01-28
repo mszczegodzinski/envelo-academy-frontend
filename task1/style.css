@@ -1,0 +1,18 @@
+:root {
+    --bg-color: red;
+}
+
+body {
+    background-color: var(--bg-color);
+    font-family: Lato, sans-serif;
+}
+
+div {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.hero {
+    border: 1px solid black;
+
+}
