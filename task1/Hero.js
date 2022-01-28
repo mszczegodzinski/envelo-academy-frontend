@@ -59,6 +59,8 @@ button.addEventListener("click", () => {
     // clear previous heroes:
     const allHeroes = [...document.querySelectorAll('.current-hero')];
     allHeroes.forEach(el => el.remove());
+    // train heroes:
+    heroes.forEach(el => el.train());
     // add new heroes with updated power:
     createHeroes(heroes);
 })
