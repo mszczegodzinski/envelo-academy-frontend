@@ -1,0 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: #bbb;
+    font-family: 'Roboto', sans-serif;
+}
+
+.page {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header {
+    color: #f00000;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin-bottom: 16px;
+}
+
+.description {
+    text-align: center;
+    margin-bottom: 64px;
+    font-size: 14px;
+}
+
+p {
+    line-height: 20px;
+}
+
+
+.pick-up-btn {
+    border: none;
+    background-color: #f00000;
+    font-size: 16px;
+    padding: 24px 56px;
+}
