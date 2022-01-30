@@ -1,50 +1,100 @@
+:root {
+	--custom-red: #f00000;
+}
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    height: 100vh;
-    background-color: #bbb;
-    font-family: 'Roboto', sans-serif;
+	height: 100vh;
+	background-color: #bbb;
+	font-family: 'Roboto', sans-serif;
 }
 
 .page {
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	max-width: 400px;
+	margin: 0 auto;
 }
 
 .card {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .header {
-    color: #f00000;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 16px;
+	color: var(--custom-red);
+	text-transform: uppercase;
+	font-weight: 500;
+	margin-bottom: 16px;
 }
 
 .description {
-    text-align: center;
-    margin-bottom: 64px;
-    font-size: 14px;
+	text-align: center;
+	margin-bottom: 16px;
+	font-size: 14px;
 }
 
 p {
-    line-height: 20px;
+	line-height: 20px;
 }
 
-
 .pick-up-btn {
-    border: none;
-    background-color: #f00000;
-    font-size: 16px;
-    padding: 24px 56px;
+	border: none;
+	cursor: pointer;
+	background-color: var(--custom-red);
+	font-size: 16px;
+	padding: 24px 56px;
+	margin-top: 48px;
+}
+
+.page .hidden {
+	display: none;
+}
+
+.inputs {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	width: 100%;
+}
+
+label {
+	font-size: 10px;
+}
+
+.input {
+	display: flex;
+	flex-direction: column;
+	width: 170px;
+}
+
+input {
+	padding: 4px;
+	font-size: 20px;
+	text-align: center;
+}
+
+.error {
+	border: 2px solid var(--custom-red);
+	outline: 0;
+}
+
+.helper-text {
+	visibility: hidden;
+	font-size: 12px;
+	height: 15px;
+}
+
+.error-text {
+	color: var(--custom-red);
+	visibility: visible;
 }
