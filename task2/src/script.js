@@ -9,7 +9,6 @@ const modal = document.querySelector('.modal');
 const endBtn = document.querySelector('.end-btn');
 const pickUpAnother = document.querySelector('.pick-up-next');
 let isStep1 = false;
-let isStep2 = false;
 
 const togglePinError = (currentValue) => {
 	const isValid = validatePin(currentValue);
@@ -89,7 +88,12 @@ pickUpBtn.addEventListener('click', (e) => {
 		return null;
 	}
 
-	showModal();
+	e.target.innerHTML =
+		'<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
+	setTimeout(() => {
+		showModal();
+		e.target.innerHTML = 'Odbierz paczkę';
+	}, 1000);
 });
 
 const goToStep0 = () => {
