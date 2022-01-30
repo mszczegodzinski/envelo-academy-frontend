@@ -88,12 +88,17 @@ pickUpBtn.addEventListener('click', (e) => {
 		return null;
 	}
 
+	// change text on button to loader:
 	e.target.innerHTML =
 		'<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>';
-	setTimeout(() => {
-		showModal();
-		e.target.innerHTML = 'Odbierz paczkę';
-	}, 1000);
+	new Promise((resolve, reject) => {
+		setTimeout(() => {
+			showModal();
+			// revert showing loader:
+			e.target.innerHTML = 'Odbierz paczkę';
+			resolve(true);
+		}, 1000);
+	});
 });
 
 const goToStep0 = () => {
