@@ -5,6 +5,9 @@ const pinInput = document.querySelector('#pin');
 const phoneHelperText = document.querySelector('#phone + span');
 const pinHelperText = document.querySelector('#pin + span');
 const inputs = document.querySelector('.inputs');
+const modal = document.querySelector('.modal');
+const endBtn = document.querySelector('.end-btn');
+const pickUpAnother = document.querySelector('.pick-up-next');
 let isStep1 = false;
 let isStep2 = false;
 
@@ -26,7 +29,7 @@ pinInput.addEventListener('blur', (e) => {
 	togglePinError(e.target.value);
 });
 
-pinInput.addEventListener('focus', (e) => {
+pinInput.addEventListener('focus', () => {
 	pinInput.classList.remove('error');
 	pinHelperText.classList.remove('error-text');
 	pinHelperText.textContent = '';
@@ -52,7 +55,7 @@ phoneInput.addEventListener('keyup', (e) => {
 	phoneInput.value = formattedVal;
 });
 
-phoneInput.addEventListener('focus', (e) => {
+phoneInput.addEventListener('focus', () => {
 	phoneInput.classList.remove('error');
 	phoneHelperText.classList.remove('error-text');
 	phoneHelperText.textContent = '';
@@ -61,6 +64,14 @@ phoneInput.addEventListener('focus', (e) => {
 phoneInput.addEventListener('blur', (e) => {
 	togglePhoneError(e.target.value);
 });
+
+const hideModal = () => {
+	modal.style.display = 'none';
+};
+
+const showModal = () => {
+	modal.style.display = 'flex';
+};
 
 pickUpBtn.addEventListener('click', (e) => {
 	e.preventDefault();
@@ -77,4 +88,23 @@ pickUpBtn.addEventListener('click', (e) => {
 		togglePinError(pinInput.value);
 		return null;
 	}
+
+	showModal();
 });
+
+const goToStep0 = () => {
+	inputs.classList.add('hidden');
+	pinInput.value = '';
+	phoneInput.value = '';
+	isStep1 = false;
+	hideModal();
+};
+
+const goToStep1 = () => {
+	pinInput.value = '';
+	phoneInput.value = '';
+	hideModal();
+};
+
+pickUpAnother.addEventListener('click', goToStep1);
+endBtn.addEventListener('click', goToStep0);
