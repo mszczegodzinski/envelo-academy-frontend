@@ -2,4 +2,4 @@
 
 Recrutiment task for Envelo front-end path.
 
-[Click here to run Cosmos app](https://mszczegodzinski.github.io/envelo-academy-frontend/) 
+[Click here to run Envelo app](https://mszczegodzinski.github.io/envelo-academy-frontend/) 
