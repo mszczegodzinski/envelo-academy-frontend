@@ -11,5 +11,6 @@ module.exports = {
 	},
 	moduleDirectories: ['node_modules', 'src'],
 	moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json'],
+	exclude: ['task2/src/utils.js'],
 	verbose: true,
 };

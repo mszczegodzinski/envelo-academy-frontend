@@ -1,14 +1,14 @@
-export const validatePin = (pin) => {
+const validatePin = (pin) => {
 	const pinRegex = new RegExp('^[0-9]{4}$');
 	return pinRegex.test(pin);
 };
 
-export const validatePhone = (phone) => {
+const validatePhone = (phone) => {
 	const phoneRegex = new RegExp('^[0-9]{9}$');
 	return phoneRegex.test(phone.replace(/' '/g, ''));
 };
 
-export const formatPhone = (phone) => {
+const formatPhone = (phone) => {
 	const currentVal = phone.replace(/' '/g, '');
 	const splitted = currentVal.split('');
 	if (splitted.length > 6) {
@@ -24,3 +24,11 @@ export const formatPhone = (phone) => {
 
 	return currentVal;
 };
+
+const utils = {
+	validatePhone,
+	validatePin,
+	formatPhone,
+};
+
+module.exports = utils;

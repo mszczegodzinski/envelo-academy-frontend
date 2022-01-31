@@ -1,4 +1,4 @@
-const utils = require('../utils.js');
+const utils = require('./utilsJest.js');
 const { validatePin, validatePhone, formatPhone } = utils;
 
 describe('utils tests', () => {
