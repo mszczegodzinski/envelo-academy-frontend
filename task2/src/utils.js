@@ -5,11 +5,11 @@ export const validatePin = (pin) => {
 
 export const validatePhone = (phone) => {
 	const phoneRegex = new RegExp('^[0-9]{9}$');
-	return phoneRegex.test(phone.replace(/' '/g, ''));
+	return phoneRegex.test(phone.replaceAll(' ', ''));
 };
 
 export const formatPhone = (phone) => {
-	const currentVal = phone.replace(/' '/g, '');
+	const currentVal = phone.replaceAll(' ', '');
 	const splitted = currentVal.split('');
 	if (splitted.length > 6) {
 		splitted.splice(6, 0, ' ');
